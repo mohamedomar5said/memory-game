@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+   <meta charset='UTF-8'>
+   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+   <title>memory game</title>
+   <link rel='stylesheet' href='style.css'>
+</head>
+
+<body>
+
+   <audio src="audio/humanPlayerVoice.mp3" id="clickAudio"></audio>
+
+   <div class="control-buttons">
+      <div class="box">
+         <input type="text" placeholder="Enter your name">
+         <span id="startBtn" tabindex="10">Start Game</span>
+      </div>
+   </div>
+
+   <section class="info-container">
+      <div class="name">
+         Hello: <span></span>
+      </div>
+      <div class="tries">
+         Wrong Tries: <span>0</span>
+      </div>
+   </section>
+
+   <section class="memory_game_blocks">
+      <!--  -->
+      <div class="game_block " data-technology="angular">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/angular.webp" alt="angular">
+         </div>
+      </div>
+      <div class="game_block" data-technology="angular">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/angular.webp" alt="angular">
+         </div>
+      </div>
+      <!--  -->
+      <div class="game_block" data-technology="css3">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/css3.png" alt="css3">
+         </div>
+      </div>
+      <div class="game_block" data-technology="css3">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/css3.png" alt="css3">
+         </div>
+      </div>
+      <!--  -->
+      <div class="game_block" data-technology="github">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/github.png" alt="github">
+         </div>
+      </div>
+      <div class="game_block" data-technology="github">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/github.png" alt="github">
+         </div>
+      </div>
+      <!--  -->
+      <div class="game_block" data-technology="gulpjs">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/gulpjs.png" alt="gulpjs">
+         </div>
+      </div>
+      <div class="game_block" data-technology="gulpjs">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/gulpjs.png" alt="gulpjs">
+         </div>
+      </div>
+      <!--  -->
+      <div class="game_block" data-technology="html5">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/html5.png" alt="html5">
+         </div>
+      </div>
+      <div class="game_block" data-technology="html5">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/html5.png" alt="html5">
+         </div>
+      </div>
+      <!--  -->
+      <div class="game_block" data-technology="jest">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/jest.webp" alt="jest">
+         </div>
+      </div>
+      <div class="game_block" data-technology="jest">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/jest.webp" alt="jest">
+         </div>
+      </div>
+      <!--  -->
+      <div class="game_block" data-technology="mongodb">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/mongodb.png" alt="mongodb">
+         </div>
+      </div>
+      <div class="game_block" data-technology="mongodb">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/mongodb.png" alt="mongodb">
+         </div>
+      </div>
+      <!--  -->
+      <div class="game_block" data-technology="python">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/python.png" alt="python">
+         </div>
+      </div>
+      <div class="game_block" data-technology="python">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/python.png" alt="python">
+         </div>
+      </div>
+      <!--  -->
+      <div class="game_block" data-technology="react">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/react.png" alt="react">
+         </div>
+      </div>
+      <div class="game_block" data-technology="react">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/react.png" alt="react">
+         </div>
+      </div>
+      <!--  -->
+      <div class="game_block" data-technology="vuejs">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/vuejs.webp" alt="vuejs">
+         </div>
+      </div>
+      <div class="game_block" data-technology="vuejs">
+         <div class="face front">!</div>
+         <div class="face back">
+            <img loading="lazy" draggable="false" src="imgs/vuejs.webp" alt="vuejs">
+         </div>
+      </div>
+
+   </section>
+
+
+   <script src='app.js'></script>
+</body>
+
+</html>
