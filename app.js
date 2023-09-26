@@ -20,10 +20,10 @@ function handleClick() {
       closePopUp();
    }
    [...blockContainer.children].forEach(block => {
-      block.style.transform = 'rotateY(180deg)';
+     block.classList.add('start-flip');
 
       setTimeout(() => {
-         block.style.transform = 'rotateY(0deg)';
+         block.classList.remove('start-flip');
       }, 3000);
    });
 }
