@@ -135,13 +135,13 @@ body {
 
 @media (max-width:800px) {
    .info-container {
-      font-size: 18px;
+      font-size: 14px;
       justify-content: space-between;
-
+   padding: 5px 20px;
    }
 
    .player_info {
-      font-size: 18px;
+      font-size: 14px;
    }
 }
 
