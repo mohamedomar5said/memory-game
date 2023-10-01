@@ -2,6 +2,16 @@ let playerNameElement = document.querySelector('.name span');
 let startBtn = document.querySelector('#startBtn');
 let input = document.querySelector('input');
 const audio = document.getElementById('clickAudio');
+const playersBoardContainer = document.querySelector('.players_board');
+let storedData = JSON.parse(localStorage.getItem('board-info'));
+let playerInfoArray = [];
+
+if (storedData) {
+   playerInfoArray = playerInfoArray.concat(storedData);
+   playerInfoArray.forEach(info => {
+      createLeaderShip(info['wrongTries'], info['theName']);
+   });
+}
 
 setTimeout(() => {
    document.querySelector('.box').style.scale = '1';
@@ -20,7 +30,7 @@ function handleClick() {
       closePopUp();
    }
    [...blockContainer.children].forEach(block => {
-     block.classList.add('start-flip');
+      block.classList.add('start-flip');
 
       setTimeout(() => {
          block.classList.remove('start-flip');
@@ -30,7 +40,6 @@ function handleClick() {
 
 function handleKeyPress(event) {
    if (event.keyCode === 13) handleClick();
-
 }
 
 function closePopUp() {
@@ -39,8 +48,6 @@ function closePopUp() {
       startBtn.parentElement.parentElement.remove();
    }, 100);
 }
-//
-
 
 let duration = 1000;
 let blockContainer = document.querySelector('.memory_game_blocks');
@@ -51,15 +58,12 @@ let wrongTriesElement = document.querySelector('.tries span');
 let arrOfBlocks = [];
 let wrongTries = 0;
 
-
 shuffle(orderRange);
 
 blocks.forEach((block, index) => {
    block.style.order = orderRange[index];
    block.addEventListener('click', () => flip(block));
 });
-
-
 
 function shuffle(arrayOfRange) {
    let current = arrayOfRange.length,
@@ -82,20 +86,17 @@ function shuffle(arrayOfRange) {
 
 function flip(selectedBlock) {
    audio.play();
-
    selectedBlock.classList.add('is-flipped');
-
    let flippedBlocks = blocks.filter(block => block.classList.contains('is-flipped'));
-
    if (flippedBlocks.length === 2) {
       stopClicking();
       checkMatch(flippedBlocks[0], flippedBlocks[1]);
-
-
    }
-
+   if (document.querySelectorAll('.has-match').length === 20) {
+      createLeaderShip(wrongTriesElement.innerHTML, playerNameElement.innerHTML);
+      addToLocal(playerInfoArray);
+   }
 }
-
 
 function stopClicking() {
 
@@ -126,7 +127,36 @@ function checkMatch(firstBlock, secondBlock) {
    }
 }
 
+function createLeaderShip(wrongTries, theName) {
+   let playerInfo = document.createElement('div');
+   playerInfo.className = 'player_info';
 
+   let playerName = document.createElement('div');
+   playerName.className = 'player_name';
+   playerName.append(document.createElement('span').innerHTML = `${theName}`);
 
+   let tries = document.createElement('div');
+   tries.className = 'tries';
 
+   tries.innerHTML =
+      `
+         Wrong Tries: <span>${wrongTries}</span>
+      `;
+
+   playersBoardContainer.append(playerInfo);
+   playerInfo.append(playerName, tries);
+
+   let info = {
+      theName: theName,
+      wrongTries: wrongTries
+   };
+
+   infoExist = playerInfoArray.some(obj => obj.theName === info.theName && obj.wrongTries === info.wrongTries);
+   if (!infoExist) { playerInfoArray.push(info); }
+
+}
+
+function addToLocal(playerInfoArray) {
+   localStorage.setItem('board-info', JSON.stringify(playerInfoArray));
+}
 
